@@ -63,6 +63,6 @@ cd /path/to/metabase/repo
 export DRIVER_PATH=`readlink -f ~/doris-driver`
 
 # Build driver. See explanation below
-clojure   -Sdeps "{:aliases {:doris {:extra-deps {com.metabase/doris-driver {:local/root \"$DRIVER_PATH\"}}}}}"    -X:build:doris   build-drivers.build-driver/build-driver!   "{:driver :doris, :project-dir \"$DRIVER_PATH\", :target-dir \"$DRIVER_PATH/target\"}"
+clojure  -J-Dhttps.protocols=TLSv1.2,TLSv1.3   -Sdeps "{:aliases {:doris {:extra-deps {com.metabase/doris-driver {:local/root \"$DRIVER_PATH\"}}}}}"    -X:build:doris   build-drivers.build-driver/build-driver!   "{:driver :doris, :project-dir \"$DRIVER_PATH\", :target-dir \"$DRIVER_PATH/target\"}"
 ```
 
